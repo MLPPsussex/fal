@@ -1,11 +1,11 @@
 <html>
 
 <body>
-<p> Falc Test </p> 
+<p> question Test </p> 
 <script>
 
-function falc(){
-alert('call falcon')
+function quest(){
+alert('call question')
  fetch('https://falcon-7b-demo-kk0powt97tmb.octoai.cloud/generate_stream', {
   method: 'POST',
   headers: {
@@ -14,21 +14,19 @@ alert('call falcon')
   },
   body: JSON.stringify({
    'inputs': "Write a sentence about Seattle",
-/*  "parameters": {
-    "max_new_tokens": 512,
-    "temperature": 0.75,
-    "top_p": 0.95,
-    "repetition_penalty": 1,
-    "seed": null,
-    "stop": []
-  } */
+"max_length": 256,
+  "temperature": 0.8,
+  "top_p": 0.95,
+  "repetition_penalty": 1.6,
+  "encoder_repetition_penalty": 1.6,
+  "min_length": 10
   })
 })
 .then(response => response.json() )
 .then( data=> { alert('api gave='+data) } )
 .catch(error => alert('err='+error));
 }
-setTimeout(falc,500)
+setTimeout(quest,500)
 </script>
 </body>
 </html>
